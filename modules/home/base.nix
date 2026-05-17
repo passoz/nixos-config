@@ -12,7 +12,7 @@
     telegram-desktop stremio-linux-shell dbeaver-bin
     postgresql mysql84 sqlite kubectl helm opentofu k3d
     zellij qjackctl jupyter vscode nodejs go gcc gnumake
-    pkgconf binutils cargo rustc python3 mise
+    pkgconf binutils cargo rustc mise
   ];
 
   programs.git = {
