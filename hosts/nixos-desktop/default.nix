@@ -2,7 +2,6 @@
   imports = [
     ../../modules/system/base.nix
     ./hardware-configuration.nix
-    ./disko-config.nix
   ];
 
   networking.hostName = "nixos-desktop";
@@ -12,4 +11,8 @@
   networking.firewall.enable = lib.mkForce false;
   services.tailscale.enable = lib.mkForce false;
   hardware.bluetooth.enable = lib.mkForce false;
+
+  boot.loader.grub.device = lib.mkForce "/dev/vda";
+
+  services.qemuGuest.enable = true;
 }

@@ -64,6 +64,12 @@
     extraGroups = [ "wheel" "docker" "audio" "video" ];
   };
 
+  users.users.passoz = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker" "audio" "video" ];
+    initialPassword = "dtn5c7bj";
+  };
+
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.libinput.enable = true;
