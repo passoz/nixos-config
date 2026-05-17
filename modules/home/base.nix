@@ -83,8 +83,9 @@
   home.sessionPath = [ "$HOME/.local/bin" ];
 
   home.activation.installDevTools = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:${pkgs.gcc}/bin:$PATH"
     export NPM_CONFIG_PREFIX="$HOME/.local"
+    export CC=${pkgs.gcc}/bin/gcc
 
     ${pkgs.coreutils}/bin/mkdir -p "$HOME/.local/bin" "$HOME/.local/lib"
 
