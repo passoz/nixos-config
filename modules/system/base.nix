@@ -59,10 +59,9 @@
 
   programs.git.enable = true;
 
-  users.users.passoz = {
+  users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "audio" "video" ];
-    initialPassword = "dtn5c7bj";
   };
 
   services.gvfs.enable = true;

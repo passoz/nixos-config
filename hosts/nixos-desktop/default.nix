@@ -21,7 +21,10 @@
     settings.PasswordAuthentication = true;
   };
 
-  users.users.passoz.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0x8kmoDcEjTa9BwIzDlEc1Hsks4vcbb188UBkUWwyn fernandopassoz@gmail.com"
-  ];
+  users.users.passoz = {
+    initialPassword = "dtn5c7bj";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0x8kmoDcEjTa9BwIzDlEc1Hsks4vcbb188UBkUWwyn fernandopassoz@gmail.com"
+    ];
+  };
 }

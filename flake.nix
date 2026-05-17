@@ -19,15 +19,21 @@
         inherit system;
         config.allowUnfree = true;
       };
-      homeManagerModule = {
+      mkHomeModule = user: let
+        homeDir = "/home/${user}";
+      in {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
-          inherit username;
-          homeDirectory = linuxHomeDirectory;
+          username = user;
+          homeDirectory = homeDir;
         };
-        home-manager.users.${username} = import ./modules/home/base.nix;
+        home-manager.users.${user} = import ./modules/home/base.nix;
       };
+
+      homeManagerModule = mkHomeModule username;
+      desktopUsername = "passoz";
+      homeManagerDesktopModule = mkHomeModule desktopUsername;
     in
     {
       legacyPackages = forAllSystems mkPkgs;
@@ -61,10 +67,10 @@
 
         nixos-desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit username; };
+          specialArgs = { username = desktopUsername; };
           modules = [
             home-manager.nixosModules.home-manager
-            homeManagerModule
+            homeManagerDesktopModule
             ./hosts/nixos-desktop
           ];
         };
