@@ -59,11 +59,6 @@
 
   programs.git.enable = true;
 
-  users.users.${username} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "audio" "video" ];
-  };
-
   users.users.passoz = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "audio" "video" ];
