@@ -58,6 +58,16 @@
             ./hosts/wayland
           ];
         };
+
+        nixos-desktop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit username; };
+          modules = [
+            home-manager.nixosModules.home-manager
+            homeManagerModule
+            ./hosts/nixos-desktop
+          ];
+        };
       };
     };
 }
